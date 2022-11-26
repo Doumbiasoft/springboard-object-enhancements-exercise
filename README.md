@@ -20,6 +20,12 @@ function createInstructor(firstName, lastName){
 
 /* Write an ES2015 Version */
 
+function createInstructor(firstName, lastName){
+  return {
+    firstName,
+    lastName
+  }
+}
 
 ```
 
@@ -28,11 +34,9 @@ function createInstructor(firstName, lastName){
 ```JavaScript
 
 var favoriteNumber = 42;
-
 var instructor = {
   firstName: "Colt"
 }
-
 instructor[favoriteNumber] = "That is my favorite!"
 
 ```
@@ -43,6 +47,11 @@ instructor[favoriteNumber] = "That is my favorite!"
 
 /* Write an ES2015 Version */
 
+let favoriteNumber = 42;
+const instructor = {
+  firstName: "Colt",
+  [favoriteNumber]: "That is my favorite!"
+}
 
 ```
 
@@ -68,6 +77,15 @@ var instructor = {
 
 /* Write an ES2015 Version */
 
+const instructor = {
+  firstName: "Colt",
+  sayHi(){
+    return "Hi!";
+  },
+  sayBye(){
+    return this.firstName + " says bye!";
+  }
+}
 
 ```
 
@@ -84,6 +102,15 @@ noise: a string to be printed when above function is called (‘woof’, ‘baaa
 Use one or more of the object enhancements we’ve covered.
 
 ```JavaScript
+
+function createAnimal(species, verb, noise){
+  return {
+    species,
+    [verb](){
+      return noise;
+    }
+  }
+}
 
 const d = createAnimal("dog", "bark", "Woooof!")
 // {species: "dog", bark: ƒ}
